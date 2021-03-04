@@ -1,3 +1,4 @@
+<?php
 require("core/user.php");
 require("core/config.php");
 require("core/util.php");
