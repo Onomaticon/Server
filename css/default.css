@@ -1,0 +1,12 @@
+#footer {
+  width:100%;
+  text-align: center;
+}
+
+.error {
+  padding:5px;
+  background-color: rgba(255,0,0,0.3);
+  border:2px;
+  border-color: rgb(255,0,0);
+  border-style: solid;
+}
