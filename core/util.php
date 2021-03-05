@@ -14,6 +14,16 @@ function l($text, $url) {
   return($ret);
 }
 
+//Templating function
+function template($t) {
+  if (file_exists("settings/".$t)) {
+    include("settings/".$t);
+  } else {
+    include("templates/".$t);
+  }
+}
+
+//Odd-even striping helper
 function oe($n) {
   if ($n == 1)  { return("odd");}
   if ($n == -1) { return("even");}

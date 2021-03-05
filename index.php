@@ -12,9 +12,9 @@ if (file_exists("settings/db.php")) {
 
 require("core/core.php");
 
-$config = getConfig($db);
-$cv_count = CVcount($db);
-$CVs = getCVs($db);
-$pageInfo = activePage();
+$GLOBALS["ontomasticon"]["config"] = getConfig($db);
+$GLOBALS["ontomasticon"]["cv_count"] = CVcount($db);
+$GLOBALS["ontomasticon"]["CVs"] = getCVs($db);
+$GLOBALS["ontomasticon"]["pageInfo"] = activePage();
 
-require("templates/core.php");
+template("core.php");

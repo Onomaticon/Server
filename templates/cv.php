@@ -1,8 +1,7 @@
 <?php
-
 $activeCV = null;
-foreach ($CVs as $CV) {
-  if ($CV["shortname"] == $pageInfo["active_page"]) {
+foreach ($GLOBALS["ontomasticon"]["CVs"] as $CV) {
+  if ($CV["shortname"] == $GLOBALS["ontomasticon"]["pageInfo"]["active_page"]) {
     $activeCV = $CV;
   }
 }
@@ -15,11 +14,12 @@ if ($activeCV == null) {
   <div id="description"><?php print $activeCV["description"]; ?></div>
 <?php
 }
-
-$terms = getTerms($db, $pageInfo["active_page"]);
+global $db;
+$terms = getTerms($db, $GLOBALS["ontomasticon"]["pageInfo"]["active_page"]);
 $oe = 1;
-foreach ($terms as $term) {
-  $oddeven = oe($oe);
-  include("templates/term-fragment.php");
+foreach ($terms as $t) {
+  $GLOBALS["ontomasticon"]["term"] = $t;
+  $GLOBALS["ontomasticon"]["oddeven"] = oe($oe);
+  template("term-fragment.php");
   $oe *= -1;
 }

@@ -22,10 +22,10 @@ function activePage() {
   return($ret);
 }
 
-function printFooter($config) {
+function printFooter() {
   $out  = "<p>Powered by ";
   $out .= l("Ontomasticon", "https://ontomasticon.github.io");
-  $out .= " v".$config["version"];
+  $out .= " v".$GLOBALS["ontomasticon"]["config"]["version"];
   $out .= "</p>";
   print($out);
 }
