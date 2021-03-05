@@ -5,7 +5,7 @@
 <meta name="Generator" content="Ontomasticon (https://ontomasticon.github.io/)"/>
 <meta name="author" content="<?php print($config["author"]); ?>">
 <meta name="description" content="<?php print($config["description"]); ?>">
-<link rel="stylesheet" type="text/css" href="https://vocab.audioblast.org/css/default.css" />
+<link rel="stylesheet" type="text/css" href="<?php print $config["base_url"]; ?>css/default.css" />
 </head>
 
 <body>
