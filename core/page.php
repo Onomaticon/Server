@@ -2,7 +2,7 @@
 
 function printFooter($config) {
   $out  = "<p>Powered by ";
-  $out .= l("Onomaticon", "https://onomaticon.github.io");
+  $out .= l("Ontomasticon", "https://ontomasticon.github.io");
   $out .= " v".$config["version"];
   $out .= "</p>";
   print($out);
