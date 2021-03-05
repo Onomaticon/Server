@@ -15,5 +15,6 @@ require("core/core.php");
 $config = getConfig($db);
 $cv_count = CVcount($db);
 $CVs = getCVs($db);
+$pageInfo = activePage();
 
 require("templates/core.php");

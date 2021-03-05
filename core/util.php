@@ -13,3 +13,9 @@ function l($text, $url) {
 
   return($ret);
 }
+
+function oe($n) {
+  if ($n == 1)  { return("odd");}
+  if ($n == -1) { return("even");}
+  return("neither");
+}

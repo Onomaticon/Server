@@ -10,3 +10,7 @@
   border-color: rgb(255,0,0);
   border-style: solid;
 }
+
+.invalid_reason {
+  font-weight: bold;
+}
