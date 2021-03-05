@@ -4,9 +4,9 @@ function getTerms($db, $cv=null) {
   if ($cv != null) {
     $sql  = "SELECT * FROM `terms` WHERE `cv` = '";
     $sql .= $db->real_escape_string($cv);
-    $sql .= "';";
+    $sql .= "' AND `invalid_reason` IS NULL;";
   }  else {
-    $sql  = "SELECT * FROM `terms` WHERE `cv` IS NULL;";
+    $sql  = "SELECT * FROM `terms` WHERE `cv` IS NULL AND `invalid_reason` IS NULL;";
   }
 
   $result = $db->query($sql);
