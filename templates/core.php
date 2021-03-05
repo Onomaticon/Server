@@ -6,7 +6,13 @@
 <meta name="author" content="<?php print($config["author"]); ?>">
 <meta name="description" content="<?php print($config["description"]); ?>">
 <link rel="stylesheet" type="text/css" href="<?php print $config["base_url"]; ?>css/default.css" />
-</head>
+<?php
+if (file_exists("settings/user.css")) {
+  ?>
+  <link rel="stylesheet" type="text/css" href="<?php print $config["base_url"]; ?>settings/user.css" />
+  <?php
+}
+?>
 
 <body>
 <h1><?php print l($config["site_name"], "/"); ?></h1>
