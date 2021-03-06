@@ -23,8 +23,20 @@ function getTerms($db, $cv=null) {
     if ($result) {
       $row["children"] = $result->fetch_all(MYSQLI_ASSOC);
       $result->close();
-      $out[] = $row;
     }
+    $sql = "SELECT * FROM `terms` WHERE `broader` = ".$row["id"]." AND `invalid_reason` IS NULL;";
+    $result = $db->query($sql);
+    if ($result) {
+      $row["narrower"] = $result->fetch_all(MYSQLI_ASSOC);
+      $result->close();
+    }
+    $sql = "SELECT * FROM `terms` WHERE `id` = ".$row["broader"]." AND `invalid_reason` IS NULL;";
+    $result = $db->query($sql);
+    if ($result) {
+      $row["broader"] = $result->fetch_all(MYSQLI_ASSOC);
+      $result->close();
+    }
+  $out[] = $row;
   }
   return($out);
 }
@@ -32,9 +44,17 @@ function getTerms($db, $cv=null) {
 function term2URI($term, $link=FALSE) {
   $out  = $GLOBALS["ontomasticon"]["config"]["base_url"];
   if ($term['cv'] == null) {
-    $out .= $term["shortname"];
+    if ($term["opaque"] == 0) {
+      $out .= $term["shortname"];
+    } else {
+      $out .= $term["id"];
+    }
   } else {
-    $out .= "cv/".$term["cv"]."#".$term["shortname"];
+    if ($term["opaque"] == 0 ) {
+      $out .= "cv/".$term["cv"]."#".$term["shortname"];
+    } else {
+      $out .= "cv/".$term["cv"]."#".$term["id"];
+    }
   }
   if ($link) {
     return(l($out, $out));
