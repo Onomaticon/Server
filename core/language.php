@@ -1,7 +1,7 @@
 <?php
 
 function detectLanguage(){
-  $lang = "en-GB";
+  $lang = $GLOBALS["ontomasticon"]["config"]["default_lang"];
 
   if (isset($_GET["lang"])) {
     $lang = $_GET["lang"];
@@ -9,15 +9,12 @@ function detectLanguage(){
   return($lang);
 }
 
-//Translation function
-function t($text, $lang="", $type="string") {
-  if ($lang == "") {
-    $lang = detectLanguage();
-  }
-  if ($lang == "en-GB") {
+//Translate interface items
+function t($text) {
+  $lang = detectLanguage();
+  if ($lang == $GLOBALS["ontomasticon"]["config"]["default_lang"]) {
     return $text;
-  }
-  if (file_exists("lang/".$lang.".php")) {
+  } elseif (file_exists("lang/".$lang.".php")) {
     if (!isset($GLOBALS["ontomasticon"]["language_data"])) {
       include("lang/".$lang.".php");
       $GLOBALS["ontomasticon"]["language_data"] = call_user_func("lang_".$lang);
@@ -27,5 +24,17 @@ function t($text, $lang="", $type="string") {
     } else {
       return($text);
     }
+  }
+}
+
+//Translate user-provided content (config variables)
+function tu($type) {
+  $lang = detectLanguage();
+  if ($lang == $GLOBALS["ontomasticon"]["config"]["default_lang"]) {
+    return($GLOBALS["ontomasticon"]["config"][$type]);
+  } elseif (isset($GLOBALS["ontomasticon"]["config"][$type."_".$lang])) {
+    return($GLOBALS["ontomasticon"]["config"][$type."_".$lang]);
+  } else {
+    return($GLOBALS["ontomasticon"]["config"][$type]);
   }
 }

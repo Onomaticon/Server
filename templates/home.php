@@ -1,4 +1,4 @@
-<div id="description"><?php print($GLOBALS["ontomasticon"]["config"]["description"]); ?></div>
+<div id="description"><?php print tu("description"); ?></div>
 <?php
 global $db;
 if ($GLOBALS["ontomasticon"]["cv_count"] > 0) {

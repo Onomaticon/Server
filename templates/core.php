@@ -1,10 +1,10 @@
 <html lang="<?php print t($GLOBALS["ontomasticon"]["config"]["default_lang"]); ?>">
 <head>
 <meta charset = "UTF-8">
-<title><?php print t($GLOBALS["ontomasticon"]["config"]["site_name"]); ?></title>
+<title><?php print tu("site_name"); ?></title>
 <meta name="Generator" content="Ontomasticon (https://ontomasticon.github.io/)"/>
 <meta name="author" content="<?php print($GLOBALS["ontomasticon"]["config"]["author"]); ?>">
-<meta name="description" content="<?php print($GLOBALS["ontomasticon"]["config"]["description"]); ?>">
+<meta name="description" content="<?php print tu("description"); ?>">
 <link rel="stylesheet" type="text/css" href="<?php print $GLOBALS["ontomasticon"]["config"]["base_url"]; ?>css/default.css" />
 <?php
 if (file_exists("settings/user.css")) {
@@ -15,7 +15,7 @@ if (file_exists("settings/user.css")) {
 ?>
 
 <body>
-<h1><?php print l($GLOBALS["ontomasticon"]["config"]["site_name"], "/"); ?></h1>
+<h1><?php print l(tu("site_name"), "/"); ?></h1>
 
 <?php
 switch($GLOBALS["ontomasticon"]["pageInfo"]["page_type"]) {
