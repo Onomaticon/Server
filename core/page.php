@@ -2,7 +2,7 @@
 
 function activePage() {
   $ret = array();
-  $parts = explode('/', $_SERVER['REQUEST_URI']);
+  $parts = explode('/', explode('?',$_SERVER['REQUEST_URI'])[0]);
   switch ($parts[1]) {
     case "cv":
       $ret["page_type"] = "cv";
@@ -23,9 +23,9 @@ function activePage() {
 }
 
 function printFooter() {
-  $out  = "<p>Powered by ";
-  $out .= l("Ontomasticon", "https://ontomasticon.github.io");
-  $out .= " v".$GLOBALS["ontomasticon"]["config"]["version"];
+  $out  = "<p>".t("Powered by")." ";
+  $out .= l("Ontomasticon", "https://ontomasticon.github.io")." ";
+  $out .= t("version")." ".$GLOBALS["ontomasticon"]["config"]["version"];
   $out .= "</p>";
   print($out);
 }

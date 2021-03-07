@@ -7,12 +7,12 @@
   <?php
   if (is_array($GLOBALS["ontomasticon"]["term"]["children"]) && count($GLOBALS["ontomasticon"]["term"]["children"]) > 0) {
     ?>
-    <h4>Related terms</h4>
+    <h4><?php print t("Related terms"); ?></h4>
     <table>
     <?php
     foreach ($GLOBALS["ontomasticon"]["term"]["children"] as $child) {
       print "<tr>";
-      print "<td class='invalid_reason'>".$child["invalid_reason"]."</td>";
+      print "<td class='invalid_reason'>".t($child["invalid_reason"])."</td>";
       print "<td class='child_term_name'>".$child["name"]."</td>";
       print "<td class='child_term_language'>".$child["language"]."</td>";
       print "</tr>";
@@ -26,7 +26,7 @@
   <?php
   if (is_array($GLOBALS["ontomasticon"]["term"]["broader"]) && count($GLOBALS["ontomasticon"]["term"]["broader"]) > 0) {
     ?>
-    <h4>Broader terms</h4>
+    <h4><?php print t("Broader term"); ?></h4>
     <table>
     <?php
     foreach ($GLOBALS["ontomasticon"]["term"]["broader"] as $child) {
@@ -45,7 +45,7 @@
   <?php
   if (is_array($GLOBALS["ontomasticon"]["term"]["narrower"]) && count($GLOBALS["ontomasticon"]["term"]["narrower"]) > 0) {
     ?>
-    <h4>Narrower terms</h4>
+    <h4><?php print t("Narrower terms"); ?></h4>
     <table>
     <?php
     foreach ($GLOBALS["ontomasticon"]["term"]["narrower"] as $child) {

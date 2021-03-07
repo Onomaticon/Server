@@ -1,12 +1,13 @@
 <?php
 
-//Translation function
-function t($text, $lang="en", $type="string") {
-  return $text;
-}
-
 //Hyperlinking function
 function l($text, $url) {
+  if (substr($url, 0, 1) == '/') {
+    if (isset($_GET["lang"])) {
+      $url .= "?lang=".$_GET["lang"];
+    }
+  }
+
   $ret  = "<a href='".$url."'>";
   $ret .= t($text);
   $ret .= "</a>";
