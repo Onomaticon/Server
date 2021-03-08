@@ -32,7 +32,12 @@ switch($GLOBALS["ontomasticon"]["pageInfo"]["page_type"]) {
     template("admin.php");
     break;
 }
+
+
 ?>
+<div id="citation">
+<?php printCitation(); ?>
+</div>
 
 <div id="footer">
 <?php printFooter(); ?>

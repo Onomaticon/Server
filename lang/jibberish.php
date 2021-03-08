@@ -11,7 +11,8 @@ function lang_jibberish() {
     "Broader term" => "Mudflats",
     "Narrower terms" => "Mudlarks",
     "Powered by" => "Flown by dragon called",
-    "version" => "iteration"
+    "version" => "iteration",
+    "Accessed on" => "Discovered in",
   );
   return($ret);
 }
