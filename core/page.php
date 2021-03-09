@@ -46,3 +46,9 @@ function logInOut() {
     return(l("Login", "/user/login"));
   }
 }
+
+function adminLink() {
+  if (userAllow("administer")) {
+    return (l("Configure site", "/admin/config"));
+  }
+}

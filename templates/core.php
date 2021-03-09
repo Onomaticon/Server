@@ -36,7 +36,9 @@ switch($GLOBALS["ontomasticon"]["pageInfo"]["page_type"]) {
 
 
 ?>
+
 <div id="citation">
+<p>To cite this website:</p>
 <?php printCitation(); ?>
 </div>
 
@@ -44,6 +46,8 @@ switch($GLOBALS["ontomasticon"]["pageInfo"]["page_type"]) {
 <?php printFooter(); ?>
 </div>
 
+<div id="menubar">
+<?php print adminLink(); ?><br/>
 <?php print logInOut(); ?>
 </body>
 
