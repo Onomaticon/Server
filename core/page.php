@@ -38,3 +38,11 @@ function printCitation() {
   $out .= t("Accessed on")." ".date("F j, Y, g:i a").".";
   print($out);
 }
+
+function logInOut() {
+  if (isset($_SESSION["user"])) {
+    return(l("Logout", "/user/login"));
+  } else {
+    return(l("Login", "/user/login"));
+  }
+}

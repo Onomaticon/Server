@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html lang="<?php print t($GLOBALS["ontomasticon"]["config"]["default_lang"]); ?>">
 <head>
 <meta charset = "UTF-8">
@@ -43,6 +44,7 @@ switch($GLOBALS["ontomasticon"]["pageInfo"]["page_type"]) {
 <?php printFooter(); ?>
 </div>
 
+<?php print logInOut(); ?>
 </body>
 
 </html>
