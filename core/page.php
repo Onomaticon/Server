@@ -13,7 +13,7 @@ function activePage() {
       $ret["active_page"] = $parts[2];
       break;
     case "admin":
-      $ret["page_type"] = "cv";
+      $ret["page_type"] = "admin";
       $ret["active_page"] = $parts[2];
       break;
     default:
