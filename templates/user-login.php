@@ -1,28 +1,9 @@
 <h2><?php print t("User login"); ?></h2>
 
 <?php
-global $db;
+
 if(isset($_POST['submit'])){
-  $email = $db->real_escape_string(trim($_POST['email']));
-  $password = $db->real_escape_string(trim($_POST['password']));
-
-  $sql = "SELECT * FROM `users` WHERE email = '".$email."'";
-  $rs = $db->query($sql);
-  $numRows = mysqli_num_rows($rs);
-  if($numRows  == 1){
-    $row = mysqli_fetch_assoc($rs);
-    if(password_verify($password,$row['password'])){
-      $_SESSION["user"] = $email;
-    } else {
-      print t("Wrong password");
-    }
-  } else {
-    print t("No matching user found");
-  }
-}
-
-if(isset($_POST['logout'])) {
-  unset($_SESSION["user"]);
+  login();
 }
 
 if (isset($_SESSION["user"])) {
