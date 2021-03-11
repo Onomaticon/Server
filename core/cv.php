@@ -43,6 +43,8 @@ function printCVs($CVs) {
 
 function editCV() {
   global $db;
+  $CV = $GLOBALS["ontomasticon"]["pageInfo"]["active_subsubpage"];
+
   $name = $db->real_escape_string(trim($_POST['name']));
   $description = $db->real_escape_string(trim($_POST['description']));
   $reference = $db->real_escape_string(trim($_POST['reference']));
@@ -51,4 +53,28 @@ function editCV() {
   $res = $db->query($sql);
 
   $GLOBALS["ontomasticon"]["CVs"] = getCVs($db);
+}
+
+function addCV() {
+  global $db;
+  $shortname = $db->real_escape_string(trim($_POST['shortname']));
+  $name = $db->real_escape_string(trim($_POST['name']));
+  $description = $db->real_escape_string(trim($_POST['description']));
+  $reference = $db->real_escape_string(trim($_POST['reference']));
+
+  $sql = "INSERT INTO `cv` (`shortname`, `name`, `description`, `reference`) VALUES ('".$shortname."', '".$name."', '".$description."', '".$reference."');";
+  $res = $db->query($sql);
+
+  $GLOBALS["ontomasticon"]["CVs"] = getCVs($db);
+}
+
+function deleteCV() {
+  global $db;
+  $CV = $GLOBALS["ontomasticon"]["pageInfo"]["active_subsubpage"];
+
+  $sql = "DELETE FROM `terms` WHERE `cv` = '".$CV."';";
+  $res1 = $db->query($sql);
+
+  $sql = "DELETE FROM `cv` WHERE `shortname` = '".$CV."';";
+  $res2 = $db->query($sql);
 }

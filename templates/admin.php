@@ -6,10 +6,15 @@
 <?php
 switch ($GLOBALS["ontomasticon"]["pageInfo"]["active_page"]) {
   case "cv":
-    if ($GLOBALS["ontomasticon"]["pageInfo"]["active_subpage"] == null) {
-      template("admin-cv-view.php");
-    } else {
-      template("admin-cv-edit.php");
+    switch ($GLOBALS["ontomasticon"]["pageInfo"]["active_subpage"]) {
+      case "add":
+        template("admin-cv-add.php");
+        break;
+      case "edit":
+        template("admin-cv-edit.php");
+        break;
+      default:
+        template("admin-cv-view.php");
     }
     break;
   case "config":

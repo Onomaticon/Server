@@ -4,9 +4,18 @@
 if (!userAllow("administer")) {
   print t("You do not have permission to administer this site");
 } else {
-  $CV = $GLOBALS["ontomasticon"]["pageInfo"]["active_subpage"];
+  $CV = $GLOBALS["ontomasticon"]["pageInfo"]["active_subsubpage"];
   if(isset($_POST['submit'])){
     editCV();
+  }
+  if (isset($_POST['delete'])){
+    template("admin-cv-delete.php");
+    goto end;
+  }
+  if (isset($_POST['delete_cv'])){
+    deleteCV();
+    print "<p>".t("Deleted.")."</p>";
+    goto end;
   }
   ?>
   <h3><?php print t("Edit")." <i>".$GLOBALS["ontomasticon"]["CVs"][$CV]["shortname"]; ?></i></h3>
@@ -24,6 +33,8 @@ if (!userAllow("administer")) {
            placeholder="">
            <br/><br/>
     <button type="submit" name="submit"><?php print t("Save"); ?></button>
+    <button type="submit" name="delete"><?php print t("Delete"); ?></button>
   </form>
 <?php
 }
+end:

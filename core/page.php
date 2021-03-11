@@ -17,8 +17,14 @@ function activePage() {
       $ret["active_page"] = $parts[2];
       if (isset($parts[3])) {
         $ret["active_subpage"] = $parts[3];
+        if (isset($parts[4])) {
+          $ret["active_subsubpage"] = $parts[4];
+        } else {
+          $ret["active_subsubpage"] = null;
+        }
       } else {
         $ret["active_subpage"] = null;
+        $ret["active_subsubpage"] = null;
       }
       break;
     default:
