@@ -6,3 +6,4 @@ require("core/page.php");
 require("core/cv.php");
 require("core/terms.php");
 require("core/language.php");
+require("core/admin.php");
