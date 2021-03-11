@@ -22,7 +22,7 @@ function getCVs($db) {
   $result = $db->query($sql);
   if ($result) {
     while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-      $ret[] = $row;
+      $ret[$row["shortname"]] = $row;
     }
     $result->close();
   }
@@ -39,4 +39,16 @@ function printCVs($CVs) {
   }
   $out .= "</table>";
   print($out);
+}
+
+function editCV() {
+  global $db;
+  $name = $db->real_escape_string(trim($_POST['name']));
+  $description = $db->real_escape_string(trim($_POST['description']));
+  $reference = $db->real_escape_string(trim($_POST['reference']));
+
+  $sql = "UPDATE `cv` SET `name` = '".$name."', `description` = '".$description."', `reference` = '".$reference."' WHERE `shortname` = '".$CV."';";
+  $res = $db->query($sql);
+
+  $GLOBALS["ontomasticon"]["CVs"] = getCVs($db);
 }

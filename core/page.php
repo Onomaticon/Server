@@ -15,6 +15,11 @@ function activePage() {
     case "admin":
       $ret["page_type"] = "admin";
       $ret["active_page"] = $parts[2];
+      if (isset($parts[3])) {
+        $ret["active_subpage"] = $parts[3];
+      } else {
+        $ret["active_subpage"] = null;
+      }
       break;
     default:
       $ret["page_type"] = "home";
