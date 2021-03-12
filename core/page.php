@@ -60,6 +60,6 @@ function logInOut() {
 
 function adminLink() {
   if (userAllow("administer")) {
-    return (l("Configure site", "/admin/config"));
+    return (l("Administration", "/admin/config"));
   }
 }

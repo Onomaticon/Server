@@ -93,7 +93,11 @@ function editTerm() {
   $sql .= "`description` = '".$description."', ";
   $sql .= "`language` = '".$language."', ";
   $sql .= "`opaque` = '".$opaque."', ";
-  $sql .= "`invalid_reason` = '".$invalid."', ";
+  if ($invalid == "") {
+    $sql .= "`invalid_reason` = NULL, ";
+  } else {
+    $sql .= "`invalid_reason` = '".$invalid."', ";
+  }
   if ($_POST["parent"] != "") {
     $sql .= "`parent` = ".$parent.", ";
   }
@@ -102,4 +106,11 @@ function editTerm() {
   }
   $sql .= "WHERE `shortname` = '".$shortname."';";
   $res = $db->query($sql);
+}
+
+function termEditLink($sn) {
+  if (userAllow("administer")) {
+    $ret = "[".l("edit", "/admin/term/edit/".$sn)."]";
+    return($ret);
+  }
 }

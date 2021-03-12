@@ -1,5 +1,9 @@
 <div class="term <?php print $GLOBALS["ontomasticon"]["oddeven"]; ?>" id ="<?php print $GLOBALS["ontomasticon"]["term"]["shortname"]; ?>">
-  <h3><?php print $GLOBALS["ontomasticon"]["term"]["name"]; ?></h3>
+  <h3><?php
+    print $GLOBALS["ontomasticon"]["term"]["name"];
+    print " ";
+    print termEditLink($GLOBALS["ontomasticon"]["term"]["shortname"]);
+  ?></h3>
   <p><?php print term2URI($GLOBALS["ontomasticon"]["term"], TRUE); ?></p>
   <p><?php print $GLOBALS["ontomasticon"]["term"]["language"]; ?></p>
   <p><?php print $GLOBALS["ontomasticon"]["term"]["description"]; ?></p>
