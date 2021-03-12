@@ -46,3 +46,11 @@ function checkUpdate() {
   fclose($h);
   return(null);
 }
+
+function bool2check($bool) {
+  if ($bool == 1) {
+    return "checked";
+  } else {
+    return "";
+  }
+}

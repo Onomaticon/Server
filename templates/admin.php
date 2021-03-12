@@ -17,6 +17,16 @@ switch ($GLOBALS["ontomasticon"]["pageInfo"]["active_page"]) {
         template("admin-cv-view.php");
     }
     break;
+  case "term":
+    switch ($GLOBALS["ontomasticon"]["pageInfo"]["active_subpage"]) {
+      case "add":
+        template("admin-term-add.php");
+        break;
+      case "edit":
+        template("admin-term-edit.php");
+        break;
+    }
+    break;
   case "config":
   default:
      template("admin-config.php");

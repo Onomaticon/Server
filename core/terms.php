@@ -1,5 +1,19 @@
 <?php
 
+function getTerm($sn) {
+  global $db;
+
+  $sql = "SELECT * FROM `terms` WHERE `shortname` = '".$sn."';";
+  $result = $db->query($sql);
+  if ($result) {
+    $ret = $result->fetch_all(MYSQLI_ASSOC);
+    $result->close();
+    return($ret[0]);
+  } else {
+    return(null);
+  }
+}
+
 function getTerms($db, $cv=null) {
   if ($cv != null) {
     $sql  = "SELECT * FROM `terms` WHERE `cv` = '";
@@ -61,4 +75,31 @@ function term2URI($term, $link=FALSE) {
   } else {
     return($out);
   }
+}
+
+function editTerm() {
+  global $db;
+  $shortname = $GLOBALS["ontomasticon"]["pageInfo"]["active_subsubpage"];
+  $name = $db->real_escape_string(trim($_POST['name']));
+  $description = $db->real_escape_string(trim($_POST['description']));
+  $language = $db->real_escape_string(trim($_POST['language']));
+  $opaque = (isset($_POST["opaque"]) ? 1 : 0);
+  $invalid = ((!isset($_POST["invalid"]) || $_POST["invalid"]=="none") ? "" : $db->real_escape_string(trim($_POST['invalid'])));
+  $parent = $db->real_escape_string(trim($_POST['parent']));
+  $broader = $db->real_escape_string(trim($_POST['broader']));
+
+  $sql  = "UPDATE `terms` SET ";
+  $sql .= "`name` = '".$name."', ";
+  $sql .= "`description` = '".$description."', ";
+  $sql .= "`language` = '".$language."', ";
+  $sql .= "`opaque` = '".$opaque."', ";
+  $sql .= "`invalid_reason` = '".$invalid."', ";
+  if ($_POST["parent"] != "") {
+    $sql .= "`parent` = ".$parent.", ";
+  }
+  if ($_POST["broader"] != "") {
+    $sql .= "`broader` = ".$broader." ";
+  }
+  $sql .= "WHERE `shortname` = '".$shortname."';";
+  $res = $db->query($sql);
 }
