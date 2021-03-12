@@ -1,6 +1,7 @@
 <div id="sub-menu">
   <?php print l("Configure site", "/admin/configure"); ?> |
-  <?php print l("Controlled vocabuaries", "/admin/cv"); ?>
+  <?php print l("Manage controlled vocabuaries", "/admin/cv"); ?> |
+  <?php print l("Add term", "/admin/term/add"); ?>
 </div>
 
 <?php

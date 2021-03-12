@@ -54,3 +54,12 @@ function bool2check($bool) {
     return "";
   }
 }
+
+function val2check($i, $c) {
+  if ($i == $c) {
+    return "checked";
+  } else {
+    return "";
+  }
+}
+

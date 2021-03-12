@@ -63,3 +63,10 @@ function adminLink() {
     return (l("Administration", "/admin/config"));
   }
 }
+
+function termEditLink($sn) {
+  if (userAllow("administer")) {
+    $ret = "[".l("edit", "/admin/term/edit/".$sn)."]";
+    return($ret);
+  }
+}

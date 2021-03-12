@@ -84,6 +84,7 @@ function editTerm() {
   $description = $db->real_escape_string(trim($_POST['description']));
   $language = $db->real_escape_string(trim($_POST['language']));
   $opaque = (isset($_POST["opaque"]) ? 1 : 0);
+  $cv = ((!isset($_POST["cv"]) || $_POST["cv"]=="none") ? "" : $db->real_escape_string(trim($_POST['cv'])));
   $invalid = ((!isset($_POST["invalid"]) || $_POST["invalid"]=="none") ? "" : $db->real_escape_string(trim($_POST['invalid'])));
   $parent = $db->real_escape_string(trim($_POST['parent']));
   $broader = $db->real_escape_string(trim($_POST['broader']));
@@ -98,19 +99,72 @@ function editTerm() {
   } else {
     $sql .= "`invalid_reason` = '".$invalid."', ";
   }
+  if ($cv == "") {
+    $sql .= "`cv` = NULL, ";
+  } else {
+    $sql .= "`cv` = '".$cv."', ";
+  }
   if ($_POST["parent"] != "") {
     $sql .= "`parent` = ".$parent.", ";
+  } else {
+    $sql .= "`parent` = NULL, ";
   }
   if ($_POST["broader"] != "") {
     $sql .= "`broader` = ".$broader." ";
+  } else {
+    $sql .= "`broader` = NULL ";
   }
   $sql .= "WHERE `shortname` = '".$shortname."';";
   $res = $db->query($sql);
+print $sql;
 }
 
-function termEditLink($sn) {
-  if (userAllow("administer")) {
-    $ret = "[".l("edit", "/admin/term/edit/".$sn)."]";
-    return($ret);
+function addTerm() {
+  global $db;
+  $shortname = $db->real_escape_string(trim($_POST['shortname']));
+  $name = $db->real_escape_string(trim($_POST['name']));
+  $description = $db->real_escape_string(trim($_POST['description']));
+  $language = $db->real_escape_string(trim($_POST['language']));
+  $opaque = (isset($_POST["opaque"]) ? 1 : 0);
+  $cv = ((!isset($_POST["cv"]) || $_POST["cv"]=="none") ? "" : $db->real_escape_string(trim($_POST['cv'])));
+  $invalid = ((!isset($_POST["invalid"]) || $_POST["invalid"]=="none") ? "" : $db->real_escape_string(trim($_POST['invalid'])));
+  $parent = $db->real_escape_string(trim($_POST['parent']));
+  $broader = $db->real_escape_string(trim($_POST['broader']));
+
+  $sql  = "INSERT INTO `terms` (`shortname`, `name`, `description`, `language`, `opaque`, `invalid_reason`, `cv`, `parent`, `broader`) VALUES ( ";
+  $sql .= "'".$shortname."', ";
+  $sql .= "'".$name."', ";
+  $sql .= "'".$description."', ";
+  $sql .= "'".$language."', ";
+  $sql .= "'".$opaque."', ";
+  if ($invalid == "") {
+    $sql .= "NULL, ";
+  } else {
+    $sql .= "'".$invalid."', ";
   }
+  if ($cv == "") {
+    $sql .= "NULL, ";
+  } else {
+    $sql .= "'".$cv."', ";
+  }
+  if ($_POST["parent"] != "") {
+    $sql .= $parent.", ";
+  } else {
+    $sql .= "NULL, ";
+  }
+  if ($_POST["broader"] != "") {
+    $sql .= $broader;
+  } else {
+    $sql .= "NULL";
+  }
+  $sql .= ");";
+  $res = $db->query($sql);
+}
+
+function deleteTerm() {
+  global $db;
+  $sn = $GLOBALS["ontomasticon"]["pageInfo"]["active_subsubpage"];
+
+  $sql = "DELETE FROM `terms` WHERE `shortname` = '".$sn."';";
+  $res = $db->query($sql);
 }
