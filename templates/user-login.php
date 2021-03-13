@@ -5,6 +5,9 @@
 if(isset($_POST['submit'])){
   login();
 }
+if (isset($_POST['logout'])){
+  logout();
+}
 
 if (isset($_SESSION["user"])) {
   print t("Logged in as")." ".$_SESSION["user"];

@@ -2,11 +2,24 @@
 
 //Check whether a user has permissions for an action.
 function userAllow($task) {
-  //TODO: read these from db
-  if ($task == "administer") {return TRUE;}
-  if ($task == "view-cv") {return TRUE;}
-  if ($task == "create-user") {return TRUE;}
-  return FALSE;
+  if (isset($_SESSION["user"])) {
+    global $db;
+    $sql = "SELECT * FROM `users` WHERE `email` = '".$_SESSION["user"]."';";
+    $rs = $db->query($sql);
+    $numrows = mysqli_num_rows($rs);
+    if ($numrows == 1) {
+      $user = mysqli_fetch_assoc($rs);
+      if ($user["id"] == 1 || $user["role"] == "administer") {
+        return TRUE;
+      } else {
+        return FALSE;
+      }
+    } else {
+      return FALSE;
+    }
+  } else {
+    return FALSE;
+  }
 }
 
 function login(){
@@ -32,6 +45,7 @@ function login(){
 function logout(){
   global $db;
   unset($_SESSION["user"]);
+  print "Logged out.";
 }
 
 function createUser(){
