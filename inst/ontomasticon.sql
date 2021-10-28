@@ -42,3 +42,12 @@ CREATE TABLE `users` (
   `role` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO config VALUES('version_db', 1);
+INSERT INTO config VALUES('version', 1);
+INSERT INTO config VALUES('mode', 'production');
+INSERT INTO config VALUES('default_lang', 'en');
+INSERT INTO config VALUES('description', 'Description goes here.');
+INSERT INTO config VALUES('site_name', 'Site name.');
+INSERT INTO config VALUES('author', 'Firstname Surname');
+
