@@ -50,5 +50,7 @@ INSERT INTO config VALUES('default_lang', 'en');
 INSERT INTO config VALUES('description', 'Description goes here.');
 INSERT INTO config VALUES('site_name', 'Site name.');
 INSERT INTO config VALUES('author', 'Firstname Surname');
-
+INSERT INTO config VALUES('update_check', UNIX_TIMESTAMP()-86400);
+INSERT INTO config VALUES('update_check_ok', 1);
+INSERT INTO config VALUES('update_available', 0);
 INSERT INTO users (email, password, role) VALUES('admin', '$2y$04$oEaHJ.52kzQbFtQzC1zRdOuAkPc5J9il37vqMJofJvZMGqJtaMovW', 'administer');
