@@ -69,7 +69,9 @@ function adminLink() {
 }
 
 function userLink() {
-  return (l("User", "/user"));
+  if (isset($_SESSION["user"])) {
+    return (l("User", "/user"));
+  }
 }
 
 function termEditLink($sn) {
