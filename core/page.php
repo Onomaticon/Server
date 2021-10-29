@@ -10,7 +10,11 @@ function activePage() {
       break;
     case "user":
       $ret["page_type"] = "user";
-      $ret["active_page"] = $parts[2];
+      if (isset($parts[2])) {
+        $ret["active_page"] = $parts[2];
+      } else {
+        $ret["active_page"] = "";
+      }
       break;
     case "admin":
       $ret["page_type"] = "admin";
