@@ -6,7 +6,7 @@
 <meta name="Generator" content="Ontomasticon (https://ontomasticon.github.io/)"/>
 <meta name="author" content="<?php print($GLOBALS["ontomasticon"]["config"]["author"]); ?>">
 <meta name="description" content="<?php print tu("description"); ?>">
-<link rel="stylesheet" type="text/css" href="<?php print $GLOBALS["ontomasticon"]["config"]["base_url"]; ?>css/default.css" />
+<link rel="stylesheet" type="text/css" href="/css/default.css" />
 <?php
 if (file_exists("settings/user.css")) {
   ?>
@@ -16,7 +16,10 @@ if (file_exists("settings/user.css")) {
 ?>
 
 <body>
-<h1><?php print l(tu("site_name"), "/"); ?></h1>
+<div id="header">
+  <img src="/images/ontomasticon.svg" id="logo" />
+  <h1 id="site_title"><?php print l(tu("site_name"), "/"); ?></h1>
+</div>
 
 <?php
 if (userAllow("administer")) {
@@ -29,6 +32,7 @@ if (userAllow("administer")) {
     print '</div>';
   }
 }
+
 
 switch($GLOBALS["ontomasticon"]["pageInfo"]["page_type"]) {
   case "cv":

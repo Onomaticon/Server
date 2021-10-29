@@ -1,3 +1,32 @@
+#header {
+  float:left;
+  width:100%;
+  display:block;
+}
+
+#logo {
+  float:left;
+  width: 150px;
+  padding-right:50px;
+  padding-bottom:50px;
+}
+
+#site_title {
+  float:left;
+}
+
+#admin-warnings {
+  float:left;
+  width:100%;
+  display:block;
+  background-color: lightpink;
+  padding: 10px;
+  border-color: red;
+  border-style: solid;
+  margin-bottom: 10px;
+}
+
+
 #footer {
   width:100%;
   text-align: center;
