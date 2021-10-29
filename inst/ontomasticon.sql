@@ -51,3 +51,4 @@ INSERT INTO config VALUES('description', 'Description goes here.');
 INSERT INTO config VALUES('site_name', 'Site name.');
 INSERT INTO config VALUES('author', 'Firstname Surname');
 
+INSERT INTO users (email, password, role) VALUES('admin', '$2y$04$oEaHJ.52kzQbFtQzC1zRdOuAkPc5J9il37vqMJofJvZMGqJtaMovW', 'administer');
