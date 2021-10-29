@@ -1,5 +1,9 @@
 <div id="sub-menu">
-  <?php print l("Login", "/user/login"); ?> | <?php print l("Add user", "/user/register"); ?>
+  <?php if (isset($_SESSION["user"])) {
+          print l("Login", "/user/login");
+        } else { 
+          print l("Add user", "/user/register"); 
+        } ?>
 </div>
 <?php
 switch ($GLOBALS["ontomasticon"]["pageInfo"]["active_page"]) {
