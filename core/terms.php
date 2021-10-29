@@ -116,7 +116,6 @@ function editTerm() {
   }
   $sql .= "WHERE `shortname` = '".$shortname."';";
   $res = $db->query($sql);
-print $sql;
 }
 
 function addTerm() {
