@@ -48,6 +48,7 @@ switch($GLOBALS["ontomasticon"]["pageInfo"]["page_type"]) {
 
 <div id="menubar">
 <?php print adminLink(); ?><br/>
+<?php print userLink(); ?><br/>
 <?php print logInOut(); ?>
 </body>
 
