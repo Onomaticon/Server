@@ -64,6 +64,10 @@ function adminLink() {
   }
 }
 
+function userLink() {
+  return (l("User", "/user"));
+}
+
 function termEditLink($sn) {
   if (userAllow("administer")) {
     $ret = "[".l("edit", "/admin/term/edit/".$sn)."]";
