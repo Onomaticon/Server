@@ -1,8 +1,8 @@
 <div id="sub-menu">
   <?php if (isset($_SESSION["user"])) {
-          print l("Login", "/user/login");
-        } else { 
           print l("Add user", "/user/register"); 
+        } else { 
+          print l("Login", "/user/login");
         } ?>
 </div>
 <?php
