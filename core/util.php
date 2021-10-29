@@ -63,3 +63,18 @@ function val2check($i, $c) {
   }
 }
 
+//System sanity check for admin user
+function adminSanity() {
+  $ret = NULL;
+  global $db;
+  $sql = 'SELECT password FROM users WHERE id = 1;';
+  $rs = $db->query($sql);
+  $numrows = mysqli_num_rows($rs);
+  if ($numrows == 1) {
+    $pw = mysqli_fetch_assoc($rs);
+    if ($pw["password"] == '$2y$04$oEaHJ.52kzQbFtQzC1zRdOuAkPc5J9il37vqMJofJvZMGqJtaMovW') {
+      $ret["Admin Password"] = "Admin password is still default value.";
+    }
+  }
+  return($ret);
+}

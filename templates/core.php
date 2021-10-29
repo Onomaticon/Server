@@ -19,6 +19,17 @@ if (file_exists("settings/user.css")) {
 <h1><?php print l(tu("site_name"), "/"); ?></h1>
 
 <?php
+if (userAllow("administer")) {
+  $status = adminSanity();
+  if ($status != NULL) {
+    print '<div id="admin-warnings">';
+    foreach($status as $key => $value) {
+      print '<b>'.$key.'</b><p>'.$value.'</p><br>';
+    }
+    print '</div>';
+  }
+}
+
 switch($GLOBALS["ontomasticon"]["pageInfo"]["page_type"]) {
   case "cv":
     template("cv.php");
