@@ -18,7 +18,7 @@
 
 #admin-warnings {
   float:left;
-  width:100%;
+  width: calc(100% - 26px);
   display:block;
   background-color: lightpink;
   padding: 10px;
