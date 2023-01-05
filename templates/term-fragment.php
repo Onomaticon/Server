@@ -19,6 +19,7 @@
       print "<td class='invalid_reason'>".t($child["invalid_reason"])."</td>";
       print "<td class='child_term_name'>".$child["name"]."</td>";
       print "<td class='child_term_language'>".$child["language"]."</td>";
+      print "<td>".termEditLink($child["shortname"])."</td>";
       print "</tr>";
     }
     ?>
