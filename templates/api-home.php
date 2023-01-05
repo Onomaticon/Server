@@ -1,2 +1,2 @@
 <?php
-print("API Home");
+print t("API Home");

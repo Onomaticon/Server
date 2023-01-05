@@ -11,14 +11,7 @@ if (isset($_GET["term"])) {
    $term = getTerm($_GET["shortname"]);
 }
 
-$url = "https://".$config["base_url"];
-if ($term["cv"] != "") {
-    $url .= "cv/".$term["cv"]."/";
-}
-//ToDo: change if opaque
-$url .= $term["shortname"];
-
-$term["url"] = $url;
+$term["url"] = term2URI($term);
 
 print(($term == null) ? "null" : json_encode($term));
 exit;
