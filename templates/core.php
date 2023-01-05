@@ -8,6 +8,7 @@
 <meta name="author" content="<?php print($GLOBALS["ontomasticon"]["config"]["author"]); ?>">
 <meta name="description" content="<?php print tu("description"); ?>">
 <link rel="stylesheet" type="text/css" href="/css/default.css" />
+<link rel="icon" type="image/png" href="/images/ontomasticon.png">
 <?php
 if (file_exists("settings/user.css")) {
   ?>
