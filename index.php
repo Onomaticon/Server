@@ -11,7 +11,8 @@ $version = 0.1;
 if (file_exists("settings/db.php")) {
   include("settings/db.php");
 } else {
-  print("settings/db.php does not exist!");
+  print("<p>settings/db.php does not exist!</p>");
+  print("<p>Refer to <a href='https://ontomasticon.github.io/installation.html'>Installation instructions.</a></p>");
   exit;
 }
 
