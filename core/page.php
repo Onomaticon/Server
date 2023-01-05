@@ -6,7 +6,7 @@ function activePage() {
   switch ($parts[1]) {
     case "api":
       $ret["page_type"] = "api";
-      $ret["active_page"] = $parts[2];
+      $ret["active_page"] = (isset($parts[2])) ? $parts[2] : "";
       break;
     case "cv":
       $ret["page_type"] = "cv";

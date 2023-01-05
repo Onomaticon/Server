@@ -49,6 +49,9 @@ switch($GLOBALS["ontomasticon"]["pageInfo"]["page_type"]) {
   case "admin":
     template("admin.php");
     break;
+  case "api":
+    template("api-home.php");
+    break;
 }
 
 

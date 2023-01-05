@@ -25,7 +25,7 @@ $GLOBALS["ontomasticon"]["CVs"] = getCVs($db);
 $GLOBALS["ontomasticon"]["pageInfo"] = activePage();
 
 if ($GLOBALS["ontomasticon"]["pageInfo"]["page_type"] == "api") {
-  require("core/api.php");
+  template("api.php");
 } else {
   template("core.php");
 }

@@ -7,6 +7,7 @@ function getTerm($sn) {
   $result = $db->query($sql);
   if ($result) {
     $ret = $result->fetch_assoc();
+    if ($result->num_rows == 0) {return(null);}
     $result->close();
     if ($ret["parent"] != "") {
       $sql = "SELECT `shortname` FROM `terms` WHERE `id` = ".$ret["parent"].";";
