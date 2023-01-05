@@ -49,7 +49,7 @@ function printCitation() {
   $out  = $GLOBALS["ontomasticon"]["config"]["author"];
   $out .= " (".date("Y").") ";
   $out .= tu("site_name")." ";
-  $out .= "(".$GLOBALS["ontomasticon"]["config"]["base_url"]."). ";
+  $out .= "(https://".$GLOBALS["ontomasticon"]["config"]["base_url"]."). ";
   $out .= t("Accessed on")." ".date("F j, Y, g:i a").".";
   print($out);
 }
