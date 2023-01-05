@@ -6,9 +6,21 @@ function getTerm($sn) {
   $sql = "SELECT * FROM `terms` WHERE `shortname` = '".$sn."';";
   $result = $db->query($sql);
   if ($result) {
-    $ret = $result->fetch_all(MYSQLI_ASSOC);
+    $ret = $result->fetch_assoc();
     $result->close();
-    return($ret[0]);
+    if ($ret["parent"] != "") {
+      $sql = "SELECT `shortname` FROM `terms` WHERE `id` = ".$ret["parent"].";";
+      $res = $db->query($sql);
+      $ret["parent"] = $res->fetch_assoc()["shortname"];
+      $res->close();
+    }
+    if ($ret["broader"] != "") {
+      $sql = "SELECT `shortname` FROM `terms` WHERE `id` = ".$ret["broader"].";";
+      $res = $db->query($sql);
+      $ret["broader"] = $res->fetch_assoc()["shortname"];
+      $res->close();
+    }
+    return($ret);
   } else {
     return(null);
   }
