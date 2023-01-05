@@ -53,12 +53,12 @@ if (!userAllow("administer")) {
     <label for="synonym"><?php print t("Synonym"); ?></label><br/><br/>
     <label for="parent"><?php print t("Parent"); ?></label><br/>
     <input type="text" id="parent" name="parent"
-           value="<?php print htmlspecialchars($sn["parent"]); ?>"
+           value="<?php ($sn["parent"]=="") ? "" : print htmlspecialchars($sn["parent"]); ?>"
            placeholder="">
            <br/><br/>
     <label for="broader"><?php print t("Broader term"); ?></label><br/>
     <input type="text" id="broader" name="broader"
-           value="<?php print htmlspecialchars($sn["broader"]); ?>"
+           value="<?php print ($sn["broader"]=="") ? "" : htmlspecialchars($sn["broader"]); ?>"
            placeholder="">
            <br/><br/>
     <button type="submit" name="submit"><?php print t("Save"); ?></button>
