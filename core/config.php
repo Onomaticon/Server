@@ -7,6 +7,11 @@ function getConfig($db) {
   if ($result) {
     while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
       $config[$row["key"]] = $row["value"];
+      if ($row["key"] == "base_url") {
+        if (substr($row["value"], -1) != "/") {
+          $config[$row["key"]] .= "/";
+        }
+      }
     }
     $result->close();
   }
