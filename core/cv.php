@@ -35,7 +35,11 @@ function printCVs($CVs) {
   $out .= "<table>";
   $out .= "<tr><th>".t("Short name")."</th><th>".t("Name")."</th></tr>";
   foreach ($CVs as $CV) {
-    $out .= "<tr><td>".l($CV["shortname"], "/cv/".$CV["shortname"])."</td><td>".$CV["name"]."</td></tr>";
+    $out .= "<tr>";
+    $out .= "<td>".l($CV["shortname"], "/cv/".$CV["shortname"])."</td>";
+    $out .= "<td>".$CV["name"]."</td>";
+    $out .= "<td>".cvEditLink($CV["shortname"])."</td>";
+    $out .= "</tr>";
   }
   $out .= "</table>";
   print($out);

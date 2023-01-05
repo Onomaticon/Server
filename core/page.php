@@ -84,3 +84,10 @@ function termEditLink($sn) {
     return($ret);
   }
 }
+
+function cvEditLink($sn) {
+  if (userAllow("administer")) {
+    $ret = "[".l("edit", "/admin/cv/edit/".$sn)."]";
+    return($ret);
+  }
+}

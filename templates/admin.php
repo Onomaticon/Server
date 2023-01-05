@@ -1,6 +1,5 @@
 <div id="sub-menu">
   <?php print l("Configure site", "/admin/configure"); ?> |
-  <?php print l("Manage controlled vocabuaries", "/admin/cv"); ?> |
   <?php print l("Add controlled vocabulary","/admin/cv/add"); ?> |
   <?php print l("Add term", "/admin/term/add"); ?>
 </div>
@@ -15,8 +14,6 @@ switch ($GLOBALS["ontomasticon"]["pageInfo"]["active_page"]) {
       case "edit":
         template("admin-cv-edit.php");
         break;
-      default:
-        template("admin-cv-view.php");
     }
     break;
   case "term":
