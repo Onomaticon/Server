@@ -44,11 +44,13 @@ function getTerms($db, $cv=null) {
       $row["narrower"] = $result->fetch_all(MYSQLI_ASSOC);
       $result->close();
     }
-    $sql = "SELECT * FROM `terms` WHERE `id` = ".$row["broader"]." AND `invalid_reason` IS NULL;";
-    $result = $db->query($sql);
-    if ($result) {
-      $row["broader"] = $result->fetch_all(MYSQLI_ASSOC);
-      $result->close();
+    if ($row["broader"] != "") {
+      $sql = "SELECT * FROM `terms` WHERE `id` = ".$row["broader"]." AND `invalid_reason` IS NULL;";
+      $result = $db->query($sql);
+      if ($result) {
+        $row["broader"] = $result->fetch_all(MYSQLI_ASSOC);
+        $result->close();
+      }
     }
   $out[] = $row;
   }
