@@ -23,7 +23,7 @@ $GLOBALS["ontomasticon"]["language"] = detectLanguage();
 $GLOBALS["ontomasticon"]["cv_count"] = CVcount($db);
 $GLOBALS["ontomasticon"]["CVs"] = getCVs($db);
 $GLOBALS["ontomasticon"]["pageInfo"] = activePage();
-print_r($GLOBALS["ontomasticon"]["pageInfo"]);
+
 if ($GLOBALS["ontomasticon"]["pageInfo"]["page_type"] == "api") {
   require("core/api.php");
 } else {
