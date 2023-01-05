@@ -1,5 +1,5 @@
 <?php
-//header('Content-Type: application/json; charset=utf-8');
+header('Content-Type: application/json; charset=utf-8');
 global $db;
 $config = getConfig($db);
 if (isset($_GET["term"])) {
@@ -15,7 +15,7 @@ $url = "https://".$config["base_url"];
 if ($term["cv"] != "") {
     $url .= "cv/".$term["cv"]."/";
 }
-//ToDO: change if opaque
+//ToDo: change if opaque
 $url .= $term["shortname"];
 
 $term["url"] = $url;
