@@ -87,11 +87,7 @@ function term2URI($term, $link=FALSE) {
       $out .= "cv/".$term["cv"]."#".$term["id"];
     }
   }
-  if ($link) {
-    return(l($out, $out));
-  } else {
-    return($out);
-  }
+  return(($link) ? l($out, $out) : $out);
 }
 
 function editTerm() {
