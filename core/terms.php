@@ -151,12 +151,16 @@ function addTerm() {
     $sql .= "'".$cv."', ";
   }
   if ($_POST["parent"] != "") {
-    $sql .= $parent.", ";
+    $sql2 = "SELECT id FROM terms WHERE shortname = '".$_POST["parent"]."';";
+    $res2 = $db->query($sql2);
+    $sql .= $res2->fetch_assoc()["id"].", ";
   } else {
     $sql .= "NULL, ";
   }
   if ($_POST["broader"] != "") {
-    $sql .= $broader;
+    $sql2 = "SELECT id FROM terms WHERE shortname = '".$_POST["broader"]."';";
+    $res2 = $db->query($sql2);
+    $sql .= $res2->fetch_assoc()["id"];
   } else {
     $sql .= "NULL";
   }
