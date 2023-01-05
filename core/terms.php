@@ -58,7 +58,9 @@ function getTerms($db, $cv=null) {
 }
 
 function term2URI($term, $link=FALSE) {
-  $out  = $GLOBALS["ontomasticon"]["config"]["base_url"];
+  global $db;
+  $config = getConfig($db);
+  $out = "https://".$config["base_url"];
   if ($term['cv'] == null) {
     if ($term["opaque"] == 0) {
       $out .= $term["shortname"];
