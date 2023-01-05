@@ -4,6 +4,10 @@ function activePage() {
   $ret = array();
   $parts = explode('/', explode('?',$_SERVER['REQUEST_URI'])[0]);
   switch ($parts[1]) {
+    case "api":
+      $ret["page_type"] = "api";
+      $ret["active_page"] = $parts[2];
+      break;
     case "cv":
       $ret["page_type"] = "cv";
       $ret["active_page"] = $parts[2];
