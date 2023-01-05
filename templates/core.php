@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<!DOCTYPE html>
 <html lang="<?php print t($GLOBALS["ontomasticon"]["config"]["default_lang"]); ?>">
 <head>
 <meta charset = "UTF-8">
