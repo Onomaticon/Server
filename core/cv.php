@@ -30,7 +30,6 @@ function getCVs($db) {
 }
 
 function printCVs($CVs) {
-  if (!userAllow("view-cv")) {return;}
   $out  = "<h2>".t("Controlled Vocabularies")."</h2>";
   $out .= "<table>";
   $out .= "<tr><th>".t("Short name")."</th><th>".t("Name")."</th></tr>";
