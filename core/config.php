@@ -21,6 +21,12 @@ function getConfig($db) {
 }
 
 function checkConfig($config) {
+  if (is_dir("inst")) {
+    $out  = "<div class='error'>";
+    $out .= "<p>For security please delete the inst directory.</p>";
+    $out .= "</div>";
+    print $out;
+  }
   if ((float)$config['version_db'] < (float)$config["version"]) {
     if (userAllow("administer")) {
       $out  = "<div class='error'>";
