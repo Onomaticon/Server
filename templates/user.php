@@ -1,5 +1,6 @@
 <div id="sub-menu">
   <?php if (isset($_SESSION["user"])) {
+          print l("Settings", "/user/settings")." | ";
           print l("Add user", "/user/register"); 
         } else { 
           print l("Login", "/user/login");
@@ -13,4 +14,7 @@ switch ($GLOBALS["ontomasticon"]["pageInfo"]["active_page"]) {
   case "register":
      template("user-register.php");
      break;
+  case "settings":
+      template("user-settings.php");
+      break;
 }
