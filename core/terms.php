@@ -118,16 +118,21 @@ function editTerm() {
     $sql .= "`cv` = '".$cv."', ";
   }
   if ($_POST["parent"] != "") {
-    $sql .= "`parent` = ".$parent.", ";
+    $sql2 = "SELECT id FROM terms WHERE shortname = '".$_POST["parent"]."';";
+    $res2 = $db->query($sql2);
+    $sql .= "`parent` = ".$res2->fetch_assoc()["id"].", ";
   } else {
     $sql .= "`parent` = NULL, ";
   }
   if ($_POST["broader"] != "") {
-    $sql .= "`broader` = ".$broader." ";
+    $sql2 = "SELECT id FROM terms WHERE shortname = '".$_POST["parent"]."';";
+    $res2 = $db->query($sql2);
+    $sql .= "`broader` = ".$res2->fetch_assoc()["broader"]." ";
   } else {
     $sql .= "`broader` = NULL ";
   }
   $sql .= "WHERE `shortname` = '".$shortname."';";
+  print_r($sql);
   $res = $db->query($sql);
 }
 
