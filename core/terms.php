@@ -132,7 +132,6 @@ function editTerm() {
     $sql .= "`broader` = NULL ";
   }
   $sql .= "WHERE `shortname` = '".$shortname."';";
-  print_r($sql);
   $res = $db->query($sql);
 }
 
