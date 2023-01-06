@@ -1,6 +1,7 @@
 <?php
 
-function CVcount($db) {
+function CVcount() {
+  global $db;
   $sql = "SELECT COUNT(*) AS `count` FROM `cv`;";
   $result = $db->query($sql);
   if ($result) {
@@ -16,12 +17,13 @@ function CVcount($db) {
   return($cv_count);
 }
 
-function getCVs($db) {
+function getCVs() {
+  global $db;
   $ret = array();
   $sql = "SELECT * FROM `cv`;";
   $result = $db->query($sql);
   if ($result) {
-    while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+    while ($row = $result->fetch_assoc()) {
       $ret[$row["shortname"]] = $row;
     }
     $result->close();

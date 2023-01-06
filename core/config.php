@@ -30,7 +30,7 @@ function getConfig() {
   $sql = "SELECT * FROM `config`;";
   $result = $db->query($sql);
   if ($result) {
-    while ($row = $result->fetch_asooc()) {
+    while ($row = $result->fetch_assoc()) {
       $config[$row["key"]] = $row["value"];
       if ($row["key"] == "base_url") {
         if (substr($row["value"], -1) != "/") {
