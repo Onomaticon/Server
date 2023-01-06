@@ -2,7 +2,6 @@
 
 function getTerm($sn) {
   global $db;
-
   $sql = "SELECT * FROM `terms` WHERE `shortname` = '".$sn."';";
   $result = $db->query($sql);
   if ($result) {
