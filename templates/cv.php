@@ -15,7 +15,7 @@ if ($activeCV == null) {
 <?php
 }
 global $db;
-$terms = getTerms($db, $GLOBALS["ontomasticon"]["pageInfo"]["active_page"]);
+$terms = getTerms($GLOBALS["ontomasticon"]["pageInfo"]["active_page"]);
 $oe = 1;
 foreach ($terms as $t) {
   $GLOBALS["ontomasticon"]["term"] = $t;

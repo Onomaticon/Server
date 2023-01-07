@@ -4,7 +4,7 @@ global $db;
 if ($GLOBALS["ontomasticon"]["cv_count"] > 0) {
   printCVs(getCVs($db));
 }
-$terms = getTerms($db, '');
+$terms = getTerms();
 $oe = 1;
 foreach ($terms as $term) {
   $GLOBALS["ontomasticon"]["term"] = $term;

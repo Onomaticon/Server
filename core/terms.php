@@ -1,8 +1,8 @@
 <?php
 
-function getTerm($sn) {
+function getTerm($shortname) {
   global $db;
-  $sql = "SELECT * FROM `terms` WHERE `shortname` = '".$sn."';";
+  $sql = "SELECT * FROM `terms` WHERE `shortname` = '".$shortname."';";
   $result = $db->query($sql);
   if ($result) {
     $ret = $result->fetch_assoc();
@@ -26,7 +26,8 @@ function getTerm($sn) {
   }
 }
 
-function getTerms($db, $cv=null) {
+function getTerms($cv=null) {
+  global $db;
   if ($cv != null) {
     $sql  = "SELECT * FROM `terms` WHERE `cv` = '";
     $sql .= $db->real_escape_string($cv);
