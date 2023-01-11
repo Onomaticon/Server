@@ -35,6 +35,13 @@ function activePage() {
         $ret["active_subsubpage"] = null;
       }
       break;
+    case "settings":
+      if ($parts[2]== "user.css") {
+        header('Content-Type: text/css');
+        readfile("settings/user.css");
+        exit;
+      }
+      break;
     default:
       $ret["page_type"] = "home";
   }
