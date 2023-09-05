@@ -24,8 +24,13 @@ $GLOBALS["ontomasticon"]["cv_count"] = CVcount($db);
 $GLOBALS["ontomasticon"]["CVs"] = getCVs($db);
 $GLOBALS["ontomasticon"]["pageInfo"] = activePage();
 
-if ($GLOBALS["ontomasticon"]["pageInfo"]["page_type"] == "api") {
-  template("api.php");
-} else {
-  template("core.php");
+switch($GLOBALS["ontomasticon"]["pageInfo"]["page_type"]) {
+  case "API":
+    template("api.php");
+    break;
+  case "ping":
+    print "pong";
+    exit;
+  default:
+    template("core.php");
 }
