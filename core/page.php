@@ -12,6 +12,10 @@ function activePage() {
       $ret["page_type"] = "cv";
       $ret["active_page"] = $parts[2];
       break;
+    case "ping":
+      $ret["page_type"] = "pong";
+      $ret["active_page"] = "";
+      break;
     case "user":
       $ret["page_type"] = "user";
       if (isset($parts[2])) {
