@@ -1,13 +1,14 @@
 <?php
+// Ontomasticon
+//
+// A simple, lightweight, PHP-based ontology browser.
+//
+// Department of Information Retrieval
+
 //Codebase version
 $version = 0.1;
 
-//Set up error reporting
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-//Check we can connect to the database
+//Check database has been configured
 if (file_exists("settings/db.php")) {
   include("settings/db.php");
 } else {
@@ -16,14 +17,17 @@ if (file_exists("settings/db.php")) {
   exit;
 }
 
+// Load core functions
 require("core/core.php");
 
+// Load configuration
 $GLOBALS["ontomasticon"]["config"] = getConfig($db);
 $GLOBALS["ontomasticon"]["language"] = detectLanguage();
 $GLOBALS["ontomasticon"]["cv_count"] = CVcount($db);
 $GLOBALS["ontomasticon"]["CVs"] = getCVs($db);
 $GLOBALS["ontomasticon"]["pageInfo"] = activePage();
 
+// Load correct page template
 switch($GLOBALS["ontomasticon"]["pageInfo"]["page_type"]) {
   case "API":
     template("api.php");
