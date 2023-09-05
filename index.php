@@ -2,10 +2,10 @@
 //Codebase version
 $version = 0.1;
 
-
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
+//Set up error reporting
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 //Check we can connect to the database
 if (file_exists("settings/db.php")) {
