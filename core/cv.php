@@ -1,4 +1,5 @@
 <?php
+// Code to handle Controlled Vocabularies (CVs)
 
 function CVcount() {
   global $db;

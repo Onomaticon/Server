@@ -51,7 +51,7 @@ function getTerms($cv=null) {
       $row["children"] = $result->fetch_all(MYSQLI_ASSOC);
       $result->close();
     }
-    $sql = "SELECT * FROM `terms` WHERE `broader` = ".$row["id"]." AND `invalid_reason` IS NULL;";
+    $sql = "SELECT * FROM `terms` WHERE `broader` = ".$row["id"]." AND `invalid_reason` IS NULL ORDER BY `shortname`;";
     $result = $db->query($sql);
     if ($result) {
       $row["narrower"] = $result->fetch_all(MYSQLI_ASSOC);
