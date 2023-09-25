@@ -29,7 +29,7 @@ $GLOBALS["ontomasticon"]["pageInfo"] = activePage();
 
 // Load correct page template
 switch($GLOBALS["ontomasticon"]["pageInfo"]["page_type"]) {
-  case "API":
+  case "api":
     template("api.php");
     break;
   case "ping":
