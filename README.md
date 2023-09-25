@@ -7,4 +7,7 @@ Ontomasticon is a simple, lightweight ontology and glossary server written in PH
 "An ontology is a way of showing the properties of a subject area and how they are related, by defining a set of concepts and categories that represent the subject." ([Ontology, Wikipedia](https://en.wikipedia.org/wiki/Ontology_(computer_science)))
 
 ## Documentation
-Please see [https://ontomasticon.github.io/](ontomasticon.github.io).
+Please see [ontomasticon.github.io/](https://ontomasticon.github.io).
+
+## Example
+[audioBlast vocabulary server](https://vocab.audioblst.org)
