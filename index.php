@@ -34,7 +34,7 @@ switch($GLOBALS["ontomasticon"]["pageInfo"]["page_type"]) {
     break;
   case "ping":
     print "pong";
-    exit;
+    break;
   default:
     template("core.php");
 }
