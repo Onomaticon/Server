@@ -1,2 +1,7 @@
 <?php
+// Ontomasticon: a simple, lightweight, PHP-based ontology browser.
+// Department of Information Retrieval
+//
+// Example database connection
+
 $db = new mysqli("localhost", "user", "password", "database");

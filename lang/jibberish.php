@@ -1,4 +1,9 @@
 <?php
+// Ontomasticon: a simple, lightweight, PHP-based ontology browser.
+// Department of Information Retrieval
+//
+// Example of a language file. This one is for Jibberish.
+
 function lang_jibberish() {
   $ret = array(
     "Controlled Vocabularies" => "Weird lists of words",

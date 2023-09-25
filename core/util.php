@@ -1,4 +1,8 @@
 <?php
+// Ontomasticon: a simple, lightweight, PHP-based ontology browser.
+// Department of Information Retrieval
+//
+// Miscellanous utility functions
 
 //Hyperlinking function
 function l($text, $url) {

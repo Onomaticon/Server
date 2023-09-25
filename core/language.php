@@ -1,4 +1,8 @@
 <?php
+// Ontomasticon: a simple, lightweight, PHP-based ontology browser.
+// Department of Information Retrieval
+//
+// Functions to handle language selection and translation.
 
 function detectLanguage(){
   $lang = $GLOBALS["ontomasticon"]["config"]["default_lang"];

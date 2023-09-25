@@ -1,8 +1,5 @@
 <?php
-// Ontomasticon
-//
-// A simple, lightweight, PHP-based ontology browser.
-//
+// Ontomasticon: a simple, lightweight, PHP-based ontology browser.
 // Department of Information Retrieval
 
 //Codebase version

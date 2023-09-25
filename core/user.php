@@ -1,4 +1,8 @@
 <?php
+// Ontomasticon: a simple, lightweight, PHP-based ontology browser.
+// Department of Information Retrieval
+//
+// Code for managing user accounts and permissions.
 
 //Check whether a user has permissions for an action.
 function userAllow($task) {
@@ -62,6 +66,7 @@ function loadUser($email) {
 }
 
 function createUser(){
+  global $db;
   $firstName = $db->real_escape_string($_POST['first_name']);
   $surName   = $db->real_escape_string($_POST['surname']);
   $email     = $db->real_escape_string($_POST['email']);

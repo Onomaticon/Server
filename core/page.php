@@ -1,4 +1,8 @@
 <?php
+// Ontomasticon: a simple, lightweight, PHP-based ontology browser.
+// Department of Information Retrieval
+//
+// Functions to handle page selection and rendering.
 
 function activePage() {
   $ret = array();

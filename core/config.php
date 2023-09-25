@@ -1,4 +1,9 @@
 <?php
+// Ontomasticon: a simple, lightweight, PHP-based ontology browser.
+// Department of Information Retrieval
+//
+// Functions to handle saving, retrieving and checking configuration variables.
+
 /**
  * Saves a user configuration submitted via $_POST to the database and
  * sets the global config variable to match.
