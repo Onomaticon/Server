@@ -14,5 +14,5 @@ Please see [ontomasticon.github.io/](https://ontomasticon.github.io).
 
 ## Examples
 
-[audioBlast vocabulary server](https://vocab.audioblst.org)
-[Glossary of bioacoustics and ecoacoustics](https://glossary.acousti.cloud)
+- [audioBlast vocabulary server](https://vocab.audioblst.org)
+- [Glossary of bioacoustics and ecoacoustics](https://glossary.acousti.cloud)
