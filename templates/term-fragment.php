@@ -8,9 +8,7 @@
   <p><?php print $GLOBALS["ontomasticon"]["term"]["language"]; ?></p>
   <p><?php print $GLOBALS["ontomasticon"]["term"]["description"]; ?></p>
   <?php
-  if ($GLOBALS["ontomasticon"]["term"]["reference"] != "") {
-    print "<p>".t("Reference").": ".$GLOBALS["ontomasticon"]["term"]["reference"]."</p>";
-  }
+  template("term-fragment-reference.php");
 
   if (is_array($GLOBALS["ontomasticon"]["term"]["children"]) && count($GLOBALS["ontomasticon"]["term"]["children"]) > 0) {
     ?>
