@@ -26,6 +26,9 @@ switch ($GLOBALS["ontomasticon"]["pageInfo"]["active_page"]) {
         break;
     }
     break;
+  case "update":
+    template("update.php");
+    break;
   case "config":
   default:
      template("admin-config.php");

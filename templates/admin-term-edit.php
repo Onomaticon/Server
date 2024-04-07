@@ -61,6 +61,11 @@ if (!userAllow("administer")) {
            value="<?php print ($sn["broader"]=="") ? "" : htmlspecialchars($sn["broader"]); ?>"
            placeholder="">
            <br/><br/>
+    <label for="reference"><?php print t("Reference"); ?></label><br/>
+    <input type="text" id="reference" name="reference"
+           value="<?php print ($sn["reference"]=="") ? "" : htmlspecialchars($sn["reference"]); ?>"
+           placeholder="">
+           <br/><br/>
     <button type="submit" name="submit"><?php print t("Save"); ?></button>
     <button type="submit" name="delete"><?php print t("Delete"); ?></button>
   </form>

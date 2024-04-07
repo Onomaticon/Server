@@ -20,6 +20,10 @@ function activePage() {
       $ret["page_type"] = "ping";
       $ret["active_page"] = "";
       break;
+    case "update":
+      $ret["page_type"] = "update";
+      $ret["active_page"] = "";
+      break;
     case "user":
       $ret["page_type"] = "user";
       if (isset($parts[2])) {

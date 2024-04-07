@@ -105,6 +105,7 @@ function editTerm() {
   $invalid = ((!isset($_POST["invalid"]) || $_POST["invalid"]=="none") ? "" : $db->real_escape_string(trim($_POST['invalid'])));
   $parent = $db->real_escape_string(trim($_POST['parent']));
   $broader = $db->real_escape_string(trim($_POST['broader']));
+  $reference = $db->real_escape_string(trim($_POST['reference']));
 
   $sql  = "UPDATE `terms` SET ";
   $sql .= "`name` = '".$name."', ";
@@ -131,10 +132,11 @@ function editTerm() {
   if ($_POST["broader"] != "") {
     $sql2 = "SELECT id FROM terms WHERE shortname = '".$broader."';";
     $res2 = $db->query($sql2);
-    $sql .= "`broader` = ".$res2->fetch_assoc()["id"]." ";
+    $sql .= "`broader` = ".$res2->fetch_assoc()["id"].", ";
   } else {
-    $sql .= "`broader` = NULL ";
+    $sql .= "`broader` = NULL, ";
   }
+  $sql .= "`reference` = '".$reference."' ";
   $sql .= "WHERE `shortname` = '".$shortname."';";
   $res = $db->query($sql);
 }
